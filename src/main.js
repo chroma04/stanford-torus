@@ -68,7 +68,7 @@ function savePref(key, v) {
 // ---------------------------------------------------------------- start spot
 const start = {
   s: params.has('s') ? parseFloat(params.get('s')) : 78,
-  u: params.has('u') ? parseFloat(params.get('u')) : -7,
+  u: params.has('u') ? parseFloat(params.get('u')) : -2,
   yaw: params.has('yaw') ? parseFloat(params.get('yaw')) : Math.PI,
 };
 if (params.has('t')) env.time = parseFloat(params.get('t'));
