@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>Stanford Torus Walk</title>
+    <meta name="description" content="A first-person, cel-shaded, procedurally generated walk through a Stanford torus space habitat." />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cellipse cx='32' cy='32' rx='28' ry='12' fill='none' stroke='%2388c0d0' stroke-width='7'/%3E%3Ccircle cx='32' cy='32' r='5' fill='%23eceff4'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./src/ui/style.css" />
+  </head>
+  <body>
+    <canvas id="view"></canvas>
+
+    <div id="hud" class="hidden">
+      <div id="place"><span id="place-name"></span><span id="place-sub"></span></div>
+      <div id="clock"></div>
+      <canvas id="minimap" width="200" height="200"></canvas>
+      <div id="crosshair"></div>
+      <div id="toast"></div>
+    </div>
+
+    <div id="overlay">
+      <div class="panel">
+        <div class="title-block">
+          <p class="eyebrow">After the 1975 NASA–Stanford study · 1.8 km ring · 1 rpm</p>
+          <h1>Stanford Torus</h1>
+          <p class="lede">
+            A walk through a rotating ring colony. Everything you see — terraces, towns, rivers, farms and
+            forests — is generated as you go.
+          </p>
+        </div>
+        <div id="loading">
+          <div class="bar"><div id="load-fill"></div></div>
+          <p id="load-text">Spinning up the habitat…</p>
+        </div>
+        <button id="start" class="hidden">Enter the ring</button>
+        <p id="resume-hint" class="hidden">Paused — click to resume</p>
+        <div class="controls">
+          <div><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> walk</div>
+          <div><kbd>Mouse</kbd> look</div>
+          <div><kbd>Shift</kbd> run</div>
+          <div><kbd>Space</kbd> jump</div>
+          <div><kbd>F</kbd> fly / walk</div>
+          <div><kbd>[</kbd><kbd>]</kbd> time of day</div>
+          <div><kbd>T</kbd> pause time</div>
+          <div><kbd>M</kbd> mute</div>
+          <div><kbd>H</kbd> hide HUD</div>
+          <div><kbd>Esc</kbd> menu</div>
+        </div>
+        <div class="settings">
+          <label>Quality
+            <select id="quality">
+              <option value="low">Low</option>
+              <option value="medium" selected>Medium</option>
+              <option value="high">High</option>
+            </select>
+          </label>
+          <label>Field of view <input id="fov" type="range" min="55" max="100" value="75" /></label>
+          <label>Day length <select id="daylen">
+              <option value="12">12 min</option>
+              <option value="48" selected>48 min</option>
+              <option value="120">2 hours</option>
+              <option value="0">Frozen</option>
+            </select></label>
+          <label class="check"><input id="invert" type="checkbox" /> Invert mouse Y</label>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
